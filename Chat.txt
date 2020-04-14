@@ -1,0 +1,12 @@
+howareyou?
+I'm fine thanks!
+howareyou
+I'm fine thanks!
+whatisachatbot?
+A chatbot is a program which you can chat with (like me)!
+whenwereyouborn?
+I was born on April 13th, 2020!
+easteregg
+Well done, you've discovered the Easter egg!
+whenwasthefirstcaseofthecoronavirus?
+The first known case was reported back in November 17th of 2019
