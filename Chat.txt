@@ -10,3 +10,7 @@ easteregg
 Well done, you've discovered the Easter egg!
 whenwasthefirstcaseofthecoronavirus?
 The first known case was reported back in November 17th of 2019
+whenwasthefirstcase?
+The first known case was reported back in November 17th of 2019
+whenwasthefirstcaseofcovid19?
+The first known case was reported back in November 17th of 2019
