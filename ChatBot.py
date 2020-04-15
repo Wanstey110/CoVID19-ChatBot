@@ -115,10 +115,10 @@ a seperate window for writing answer
     entryFeed.bind ('<Return>' , writeAns)
     entryFeed.pack()
 
-    button = Button (frameRoot , text = 'Add answer' , command  = writeAns , bg = c3 , fg = 'white' )
+    button = Button(frameRoot , text = 'Add answer' , command  = writeAns , bg = c3 , fg = 'white' )
     button.pack()
     
-def write_file () :
+def writeFile () :
 
     """
 opening file for appending in
@@ -305,8 +305,8 @@ root = Tk ()
 back = PhotoImage(file = 'arrow_behind.png')
 front = PhotoImage(file = 'arrow_ahead.png')
 exitt = PhotoImage(file = 'exit.png')
-screen_1 = PhotoImage(file = 'image_5.png')
-submit_img = PhotoImage(file = 'image_8.png')
+screen1 = PhotoImage(file = 'image_5.png')
+submitImg = PhotoImage(file = 'image_8.png')
 
 #---------------------------------------------------------------------------------------------------------------------
 
@@ -324,10 +324,10 @@ welcome.place(x = 160 , y = 200)
 welcomeChatbot = Label(frameWelcome , text = 'I am your CoVID-19 friendly chatbot!' , font = "Helvetica 15 bold italic" , bg = c1 , fg = c6)
 welcomeChatbot.place(x = 125 , y = 270)
 
-pic1 = Label(frameWelcome , image = screen_1)
+pic1 = Label(frameWelcome , image = screen1)
 pic1.place(x = -2 , y = 357 )
 
-buttonFront = Button (frameWelcome , image = front , relief = "flat" , bg = c1 , bd = "3px solid black" , command = welcomeToInfo ).place(x=470 , y=10)
+buttonFront = Button(frameWelcome , image = front , relief = "flat" , bg = c1 , bd = "3px solid black" , command = welcomeToInfo ).place(x=470 , y=10)
 
 #__________________________________________________________________
 
@@ -335,13 +335,13 @@ buttonFront = Button (frameWelcome , image = front , relief = "flat" , bg = c1 ,
 
 def clock () :
     current = time.strftime("%H:%M:%S")
-    label_time = Label(frameWelcome , bd = 5 ,  text = current , height = 1 , width = 8 , font = 'Ariel 11 bold' ,  fg = "white" , relief = 'groove' , bg = c3)
-    label_time.place(x= 120 , y = 63)
+    labelTime = Label(frameWelcome , bd = 5 ,  text = current , height = 1 , width = 8 , font = 'Ariel 11 bold' ,  fg = "white" , relief = 'groove' , bg = c3)
+    labelTime.place(x= 120 , y = 63)
 
-    label_time.after( 1000 , clock )
+    labelTime.after( 1000 , clock )
    
-button_time = Button (frameWelcome , text = 'Time' , height = 1 , font = 'Vardana 10 bold' ,  width = 8 , bg = c2 , fg = c1 ,  command = clock)
-button_time.place(x=30 , y = 63)
+buttonTime = Button(frameWelcome , text = 'Time' , height = 1 , font = 'Vardana 10 bold' ,  width = 8 , bg = c2 , fg = c1 ,  command = clock)
+buttonTime.place(x=30 , y = 63)
 
 #_____________________________________________________________________________
 
@@ -351,17 +351,17 @@ def date () :
     
     try:
         date = time.strftime("%d %B , 20%y")
-        label_date = Label(frameWelcome , bd = 5 , relief = 'groove' ,  text = date , bg = c3 , fg = "white"  , height = 1 , font = 'Ariel 11 bold')
-        label_date.place(x= 400 , y = 63)
+        labelDate = Label(frameWelcome , bd = 5 , relief = 'groove' ,  text = date , bg = c3 , fg = "white"  , height = 1 , font = 'Ariel 11 bold')
+        labelDate.place(x= 400 , y = 63)
 
-        label_date.after(86400000 , date)
+        labelDate.after(86400000 , date)
         
     except AttributeError:
         print('')        
         
         
-button_date = Button (frameWelcome , text = 'Date' ,height = 1 , font = 'Vardana 10 bold' ,  width = 8 , bg = c2 , fg= c1 , command = date)
-button_date.place(x = 310 , y = 63)
+buttonDate = Button(frameWelcome , text = 'Date' ,height = 1 , font = 'Vardana 10 bold' ,  width = 8 , bg = c2 , fg= c1 , command = date)
+buttonDate.place(x = 310 , y = 63)
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -393,10 +393,10 @@ chatbotName.place(x = 80 , y = 220)
 entryChat = Text (frameInfo , bg = c6, fg = "white" , height ='1'  , width ='40' , font = 'Ariel 15')
 entryChat.place(x = 80 , y = 260)
 
-button_1 = Button (frameInfo , text ='submit' , font = 'Vardana 10 bold' , bg = c2 , fg = c1 , command = info )
-button_1.place(x = 470 , y = 330)
+button1 = Button(frameInfo , text ='submit' , font = 'Vardana 10 bold' , bg = c2 , fg = c1 , command = info )
+button1.place(x = 470 , y = 330)
 
-buttonBack = Button (frameInfo , image =  back , relief = "flat" , bg = c1 , command = infoToWelcome).place(x=10 , y = 10)
+buttonBack = Button(frameInfo , image =  back , relief = "flat" , bg = c1 , command = infoToWelcome).place(x=10 , y = 10)
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -415,18 +415,18 @@ spacer4.pack()
 spacer5 = Label(frameTopic , bg = c1)
 spacer5.pack()
 
-option_1 = Label(frameTopic , text = """
+option1 = Label(frameTopic , text = """
     Make sure you type in lowercase without spaces! 
     E.g. whatisyourname?
     If you're stuck, type help
     Press the arrow to proceed to the chat
     """ , font = 'Verdana 15 italic' , bg = c1 , fg= c2)
-option_1.place(x = 0 , y = 50)
+option1.place(x = 0 , y = 50)
 
-button_opt_1 = Button (frameTopic , text = 'Proceed' , image = front , relief = "flat" , bg = c1 ,command = topic1)
-button_opt_1.place(x = 350 , y = 50)
+buttonOpt1 = Button(frameTopic , text = 'Proceed' , image = front , relief = "flat" , bg = c1 ,command = topic1)
+buttonOpt1.place(x = 350 , y = 50)
 
-buttonBack = Button (frameTopic , image = back , relief = "flat", bg = c1 , command = topicToInfo).place(x=10 , y = 10)
+buttonBack = Button(frameTopic , image = back , relief = "flat", bg = c1 , command = topicToInfo).place(x=10 , y = 10)
 
 """         CHAT FRAME   """
 """"       Main Chat Screen   """
@@ -434,20 +434,20 @@ buttonBack = Button (frameTopic , image = back , relief = "flat", bg = c1 , comm
 frameChat = Frame(root , bg = c1 , height = '670' , width = '550')
 frameChat.pack_propagate(0)
 
-frame_top = Frame( frameChat , bg = c3 , height = '100' , width = '550')
-frame_top.pack()
+frameTop = Frame( frameChat , bg = c3 , height = '100' , width = '550')
+frameTop.pack()
 
-labelTopic = Label( frame_top , bg = c3 , fg = 'white' , font = 'Verdana 20 bold ')
+labelTopic = Label( frameTop , bg = c3 , fg = 'white' , font = 'Verdana 20 bold ')
 labelTopic.pack(pady = '40')
 
-frame_spacer = Frame( frame_top , bg = c2 , height = "10" , width = "550" )
-frame_spacer.pack()
+frameSpacer = Frame( frameTop , bg = c2 , height = "10" , width = "550" )
+frameSpacer.pack()
 
 bottomFrame = Frame(frameChat , bg = c2 , height = '100' , width = '550')
 bottomFrame.pack_propagate(0)
 bottomFrame.pack(side = BOTTOM)
 
-button = Button (bottomFrame , image = submit_img , relief = "flat", font = 'Vardana 10 bold' , bg = c3 , command = submit )
+button = Button(bottomFrame , image = submitImg , relief = "flat", font = 'Vardana 10 bold' , bg = c3 , command = submit )
 button.place(x = 410 , y = 27)
                                    
 entry = Text (bottomFrame , bg = c3 , fg = c6 , height = '5'  , width ='45' , font  ='Verdana 10')
@@ -460,13 +460,13 @@ frameChats.pack()
 
 labelSpace = Label(frameChats , bg = c1).pack()
 
-buttonRefresh = Button (frameChat , bg = c3 , fg = c2 ,  text = 'refresh' , font = 'Vardana 10 bold' ,  command =refreshScreen)
+buttonRefresh = Button(frameChat , bg = c3 , fg = c2 ,  text = 'refresh' , font = 'Vardana 10 bold' ,  command =refreshScreen)
 buttonRefresh.place(x = 440 , y = 80)
 
-buttonWrite = Button (bottomFrame , text = 'write' ,bg = c3 ,fg = c2 , font = 'Vardana 8' ,  command = write_file )
+buttonWrite = Button(bottomFrame , text = 'write' ,bg = c3 ,fg = c2 , font = 'Vardana 8' ,  command = writeFile )
 
-buttonBack = Button (frameChat , image = back , relief = "flat" , bg = c3 , command = chatToTopic).place(x=10 , y = 10)
-buttonFront = Button (frameChat , image = exitt , relief = "flat" , bg = c3 , command = root.destroy ).place(x=440 , y = 10)
+buttonBack = Button(frameChat , image = back , relief = "flat" , bg = c3 , command = chatToTopic).place(x=10 , y = 10)
+buttonFront = Button(frameChat , image = exitt , relief = "flat" , bg = c3 , command = root.destroy ).place(x=440 , y = 10)
 
 root.mainloop ()
 ##Well done you made it!

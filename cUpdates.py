@@ -13,5 +13,5 @@ def cUpdate(country):
 	toPrint = toPrint.replace("]", "")
 	return toPrint
 if __name__ == "__main__":
-	x = cUpdate("Japan")
+	x = cUpdate("Vietnam")
 	print(x)

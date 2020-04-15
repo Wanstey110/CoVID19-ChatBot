@@ -6,7 +6,7 @@ def showGraph():
 	b = 1.1194
 	x = np.arange(1,100,0.01)
 	y = [x0 * b**i for i in x]
-	plt.plot(x,y,"b--2")
+	plt.plot(x,y,"b--2") 
 	plt.grid(which="major")
 	plt.ylabel("Number of cases")
 	plt.xlabel("Time (days)")
