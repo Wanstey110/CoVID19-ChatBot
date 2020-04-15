@@ -168,11 +168,9 @@ function for producing response of
     labelRequest = Label(frameChats ,text=chatRaw , bg = c4 , fg= c7  , justify = LEFT , wraplength = 300, font = 'Verdana 10 bold')
     
     labelRequest.pack(anchor = 'w')   
-    
-    global answer
-    
+        
     if chat == 'groupmembers' or chat == 'group' or chat == 'developers' or chat == 'groupmember':
-          answer = "William Anstey \n Demetrious Economous"
+          answer = "William Anstey \n Demetrios Economou"
 
     elif chat == "what'smyname?" or chat == "whatsmyname?" or chat == "whatismyname?" or chat == "whatsmyname" or chat == 'myname?' or chat =='myname' :
           answer = myname
@@ -193,7 +191,7 @@ function for producing response of
         Try these commmands:
         growthrate
         symptomscheck
-        update + your country (currently only Japan Singapore and Australia are working)
+        update + your country (currently only Japan, Singapore and Vietnam are working)
         Also feel free to ask me any questions you have about the virus, like when was the first case etc.
         """
 
@@ -214,11 +212,12 @@ function for producing response of
         placeHolder = cUpdates.cUpdate("Singapore")
         answer = f"Current CoVID-19 statistics in Singapore:\n{placeHolder}"
     
-    elif chat == "updateaustralia":
-        placeHolder = cUpdates.cUpdate("Australia")
-        answer = f"Current CoVID-19 statistics in Australia:\n{placeHolder}"
+    elif chat == "updatesvietnam":
+        placeHolder = cUpdates.cUpdate("Vietnam")
+        answer = f"Current CoVID-19 statistics in Vietnam:\n{placeHolder}"
         
     elif chat == "sympcheck" or chat == "symptomcheck":
+        getResponse("Check your terminal to answer the questions!")
         simp = sympcheck.sympcheck()
         answer = simp
 
@@ -245,15 +244,15 @@ function for producing response of
               elif blurb == 3:
                 answer = "Indeed"
               elif blurb == 4:
-                answer == "I comprehend"
+                answer = "I comprehend"
               elif chat.endswith("?"):
                 answer = "I'm sorry but I can't answer that"
               buttonWrite.place(x=430,y=3)
 
 
-    getResponse()
+    getResponse(answer)
         
-def getResponse() :
+def getResponse(answer) :
 
     global labelResponse
     labelResponse = Label(frameChats ,text= answer ,bg= c5 , fg = c8 , justify = LEFT , wraplength = 300, font = 'Verdana 10 bold')
