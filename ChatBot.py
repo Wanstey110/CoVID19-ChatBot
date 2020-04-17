@@ -191,7 +191,7 @@ function for producing response of
         Try these commmands:
         growthrate
         symptomscheck
-        update + your country (currently only Japan, Singapore and Vietnam are working)
+        update + your country (currently only Japan, Singapore, Vietnam and the Philippines are working)
         Also feel free to ask me any questions you have about the virus, like when was the first case etc.
         """
 
@@ -212,9 +212,13 @@ function for producing response of
         placeHolder = cUpdates.cUpdate("Singapore")
         answer = f"Current CoVID-19 statistics in Singapore:\n{placeHolder}"
     
-    elif chat == "updatesvietnam":
+    elif chat == "updatevietnam":
         placeHolder = cUpdates.cUpdate("Vietnam")
         answer = f"Current CoVID-19 statistics in Vietnam:\n{placeHolder}"
+    
+    elif chat == "updatephilippines":
+        placeHolder = cUpdates.cUpdate("Philippines")
+        answer = f"Current CoVID-19 statistics in the Philippines:\n{placeHolder}"
         
     elif chat == "sympcheck" or chat == "symptomcheck":
         getResponse("Check your terminal to answer the questions!")
