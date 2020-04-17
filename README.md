@@ -5,3 +5,6 @@ The required modules are listed below:
 1. MatPlotLib
 2. NumPy
 3. Requests
+#----------------------------------------------------------------------------------------------------------------------------#
+#TO RUN:
+Please run the "ChatBot.py" file to run!
