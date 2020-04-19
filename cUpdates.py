@@ -101,13 +101,15 @@ def cUpdateWorld():
 			
 	if int(cTime.month) == 1:
 		cTimeMonth = 12
+		cTimeYear = int(cTime.year) - 1
 	else:
 		cTimeMonth = int(cTime.month) - 1
+		cTimeYear = int(cTime.year)
 	
 	if len(str(cTime.month)) == 1:
 		cTimeMonth = f"0{int(cTimeMonth)}"
 	
-	cTimeReturn = f"{cTime.year}-{cTimeMonth}-{cTimeDay}"
+	cTimeReturn = f"{cTimeYear}-{cTimeMonth}-{cTimeDay}"
 	print(cTimeReturn)
 	querystring = {"date": cTimeReturn}
 	headers = {

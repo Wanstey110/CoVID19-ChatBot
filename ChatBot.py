@@ -194,6 +194,7 @@ def main():
             growthrate
             symptomscheck
             update + your country
+            updateworld
             Also feel free to ask me any questions you have about the virus, like when was the first case etc.
             """
 
