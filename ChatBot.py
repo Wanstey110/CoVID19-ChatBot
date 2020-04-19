@@ -145,7 +145,7 @@ def main():
             widget.destroy()
 
         buttonWrite.place_forget()
-        labelSpace = Label(frameChats , bg = c1 ,  text = '')
+        labelSpace = Label(frameChats , bg = "c1" ,  text = '')
         labelSpace.pack()
 
     #------------------------------------------------------------------------------------------
@@ -167,7 +167,7 @@ def main():
         chat = chat.replace(" ","")
 
         global labelRequest
-        labelRequest = Label(frameChats ,text=chatRaw , bg = c4 , fg= c7  , justify = LEFT , wraplength = 300, font = 'Verdana 10 bold')
+        labelRequest = Label(frameChats ,text=chatRaw , bg = "white" , fg= "black"  , justify = LEFT , wraplength = 300, font = 'Verdana 10 bold')
         
         labelRequest.pack(anchor = 'w')   
             
