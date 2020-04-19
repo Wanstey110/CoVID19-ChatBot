@@ -165,9 +165,9 @@ def cUpdateSpecial(country):
 
 	if country == "usa":
         ##USA
-		casesUSA = r2["countries_stat"][000]["cases"]
-		deathsUSA = r2["countries_stat"][000]["deaths"]
-		recoveredUSA = r2["countries_stat"][000]["total_recovered"]
+		casesUSA = int(r2["countries_stat"][000]["cases"])
+		deathsUSA = int(r2["countries_stat"][000]["deaths"])
+		recoveredUSA = int(r2["countries_stat"][000]["total_recovered"])
 
 		mortalityRateUSA = (deathsUSA / casesUSA) * 100
 		mortalityRateUSA = f"{round(mortalityRateUSA,2)}% (2dp)"
@@ -182,9 +182,9 @@ def cUpdateSpecial(country):
 		return f"Stats:\nConfirmed: {casesUSA}\nDeaths: {deathsUSA}\nRecovered: {recoveredUSA}\nMortality Rate:{mortalityRateUSA}\nRecovery Rate:{recoveryRateUSA}\nCases per 1 million:{casespermUSA}"
 
 	elif country == "china":
-		casesChi = r2["countries_stat"][6]["cases"]
-		deathsChi = r2["countries_stat"][6]["deaths"]
-		recoveredChi = r2["countries_stat"][6]["total_recovered"]
+		casesChi = int(r2["countries_stat"][6]["cases"])
+		deathsChi = int(r2["countries_stat"][6]["deaths"])
+		recoveredChi = int(r2["countries_stat"][6]["total_recovered"])
 
 		mortalityRateChi = (deathsChi / casesChi) * 100
 		mortalityRateChi = f"{round(mortalityRateChi,2)}% (2dp)"
@@ -200,9 +200,9 @@ def cUpdateSpecial(country):
 
 	elif country == "canada":
         ##Canada
-		casesCan = r2["countries_stat"][12]["cases"]
-		deathsCan = r2["countries_stat"][12]["deaths"]
-		recoveredCan = r2["countries_stat"][12]["total_recovered"]
+		casesCan = int(r2["countries_stat"][12]["cases"])
+		deathsCan = int(r2["countries_stat"][12]["deaths"])
+		recoveredCan = int(r2["countries_stat"][12]["total_recovered"])
 
 		mortalityRateCan = (deathsCan / casesCan) * 100
 		mortalityRateCan = f"{round(mortalityRateCan,2)}% (2dp)"
