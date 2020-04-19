@@ -193,7 +193,7 @@ def main():
             Try these commmands:
             growthrate
             symptomscheck
-            update + your country NOTE: Currently USA, China and Canada are not working
+            update + your country
             Also feel free to ask me any questions you have about the virus, like when was the first case etc.
             """
 
@@ -208,6 +208,10 @@ def main():
         
         elif chat == 'updateworld':
             answer = cUpdates.cUpdateWorld()
+        
+        elif chat == 'updateusa' or chat == 'updatecanada' or chat == 'updatechina':
+            specialChat = chat.replace("update", "")
+            answer = cUpdates.cUpdateSpecial("specialChat")
 
         elif 'update' in chat: 
             upc = chat.find('update')
