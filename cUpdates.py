@@ -104,6 +104,9 @@ def cUpdateWorld():
 	else:
 		cTimeMonth = int(cTime.month) - 1
 	
+	if len(str(cTime.month)) == 1:
+		cTimeMonth = f"0{int(cTimeMonth)}"
+	
 	cTimeReturn = f"{cTime.year}-{cTimeMonth}-{cTimeDay}"
 	print(cTimeReturn)
 	querystring = {"date": cTimeReturn}
@@ -165,9 +168,9 @@ def cUpdateSpecial(country):
 
 	if country == "usa":
         ##USA
-		casesUSA = int(r2["countries_stat"][000]["cases"])
-		deathsUSA = int(r2["countries_stat"][000]["deaths"])
-		recoveredUSA = int(r2["countries_stat"][000]["total_recovered"])
+		casesUSA = int(r2["countries_stat"][000]["cases"].replace(",",""))
+		deathsUSA = int(r2["countries_stat"][000]["deaths"].replace(",",""))
+		recoveredUSA = int(r2["countries_stat"][000]["total_recovered"].replace(",",""))
 
 		mortalityRateUSA = (deathsUSA / casesUSA) * 100
 		mortalityRateUSA = f"{round(mortalityRateUSA,2)}% (2dp)"
@@ -175,16 +178,16 @@ def cUpdateSpecial(country):
 		recoveryRateUSA = (recoveredUSA / casesUSA) * 100
 		recoveryRateUSA = f"{round(recoveryRateUSA,2)}% (2dp)"
 
-		casespermUSA = (casesUSA/getPopulation(country))
+		casespermUSA = (casesUSA/getPopulation("United States"))
 		casespermUSA = casespermUSA * 1000000
 		casespermUSA = f"{round(casespermUSA, 2)} (2dp)"
 
 		return f"Stats:\nConfirmed: {casesUSA}\nDeaths: {deathsUSA}\nRecovered: {recoveredUSA}\nMortality Rate:{mortalityRateUSA}\nRecovery Rate:{recoveryRateUSA}\nCases per 1 million:{casespermUSA}"
 
 	elif country == "china":
-		casesChi = int(r2["countries_stat"][6]["cases"])
-		deathsChi = int(r2["countries_stat"][6]["deaths"])
-		recoveredChi = int(r2["countries_stat"][6]["total_recovered"])
+		casesChi = int(r2["countries_stat"][6]["cases"].replace(",",""))
+		deathsChi = int(r2["countries_stat"][6]["deaths"].replace(",",""))
+		recoveredChi = int(r2["countries_stat"][6]["total_recovered"].replace(",",""))
 
 		mortalityRateChi = (deathsChi / casesChi) * 100
 		mortalityRateChi = f"{round(mortalityRateChi,2)}% (2dp)"
@@ -192,7 +195,7 @@ def cUpdateSpecial(country):
 		recoveryRateChi = (recoveredChi / casesChi) * 100
 		recoveryRateChi = f"{round(recoveryRateChi,2)}% (2dp)"
 
-		casespermChi = (casesChi/getPopulation(country))
+		casespermChi = (casesChi/getPopulation("China"))
 		casespermChi = casespermChi * 1000000
 		casespermChi = f"{round(casespermChi, 2)} (2dp)"
 
@@ -200,17 +203,17 @@ def cUpdateSpecial(country):
 
 	elif country == "canada":
         ##Canada
-		casesCan = int(r2["countries_stat"][12]["cases"])
-		deathsCan = int(r2["countries_stat"][12]["deaths"])
-		recoveredCan = int(r2["countries_stat"][12]["total_recovered"])
+		casesCan = int(r2["countries_stat"][12]["cases"].replace(",",""))
+		deathsCan = int(r2["countries_stat"][12]["deaths"].replace(",",""))
+		recoveredCan = int(r2["countries_stat"][12]["total_recovered"].replace(",",""))
 
 		mortalityRateCan = (deathsCan / casesCan) * 100
 		mortalityRateCan = f"{round(mortalityRateCan,2)}% (2dp)"
 
-		recoveryRateCan = (recoveredChi / casesCan) * 100
+		recoveryRateCan = (recoveredCan / casesCan) * 100
 		recoveryRateCan = f"{round(recoveryRateCan,2)}% (2dp)"
 
-		casespermCan = (casesCan/getPopulation(country))
+		casespermCan = (casesCan/getPopulation("Canada"))
 		casespermCan = casespermCan * 1000000
 		casespermCan = f"{round(casespermCan, 2)} (2dp)"
 
