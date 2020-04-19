@@ -6,6 +6,7 @@ import sympcheck
 import growthRate
 import cUpdates
 
+##Main function
 def main():
     ##Color Table
     c1 = '#263238'
