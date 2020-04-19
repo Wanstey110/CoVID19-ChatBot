@@ -5,6 +5,7 @@ from tkinter import *
 import sympcheck
 import growthRate
 import cUpdates
+count = 0
 
 ##Main function
 def main():
@@ -32,14 +33,14 @@ def main():
         chatbot = entryChat.get('1.0', 'end-1c')
         
         if myname == "" or chatbot == "":
-            Label(frameInfo , text = "Please fill in both fields" , bg = "red" , fg = "white" , font = 'Verdana 11 bold').place( x = 182 , y = 96)
+            Label(frameInfo , text = "Please fill in both fields" , bg = "red" , fg = "white" , font = 'Verdana 11 bold').place(x = 182 , y = 96)
             return 
 
         entryUser.delete('1.0' , END)
         entryChat.delete('1.0' , END)
 
         frameInfo.pack_forget()
-        frameTopic.pack()
+        frameChat.pack()
         
     #------------------------------------------------------------------------------------------
 
@@ -62,7 +63,7 @@ def main():
         global doc
         doc = a.readlines()
 
-        frameTopic.pack_forget()
+        frameInfo.pack_forget()
         frameChat.pack()    
 
         topic = "CoVID-19"
@@ -129,7 +130,7 @@ def main():
         """
 
         global b
-        b = open ( top , 'a')
+        b = open (top , 'a')
         
         b.write(chatRaw)
         b.write('\n')
@@ -145,17 +146,37 @@ def main():
             widget.destroy()
 
         buttonWrite.place_forget()
-        labelSpace = Label(frameChats , bg = "c1" ,  text = '')
+        labelSpace = Label(frameChats , bg = c1 ,  text = '')
         labelSpace.pack()
 
     #------------------------------------------------------------------------------------------
     def submit() :
-
+        global count
+        count += 1
         """
     function for producing response of
             request of user
 
         """
+        global noTopic
+        noTopic = 1
+
+        global top
+        top = 'chat.txt'
+
+        global a
+        a = open(top, 'r')
+
+        global doc
+        doc = a.readlines()
+
+        frameInfo.pack_forget()
+        frameChat.pack()
+
+        topic = "CoVID-19"
+        labelTopic.config(text=topic)
+        if count == 0:
+            refreshScreen()
 
         buttonWrite.place_forget()
         global chatRaw
@@ -167,7 +188,7 @@ def main():
         chat = chat.replace(" ","")
 
         global labelRequest
-        labelRequest = Label(frameChats ,text=chatRaw , bg = "white" , fg= "black"  , justify = LEFT , wraplength = 300, font = 'Verdana 10 bold')
+        labelRequest = Label(frameChats ,text=chatRaw , bg = c4 , fg= c7  , justify = LEFT , wraplength = 300, font = 'Verdana 10 bold')
         
         labelRequest.pack(anchor = 'w')   
             
@@ -255,7 +276,6 @@ def main():
                     answer = "I'm sorry but I can't answer that"
                 buttonWrite.place(x=430,y=3)
 
-
         getResponse(answer)
             
     def getResponse(answer) :
@@ -284,18 +304,12 @@ def main():
         
     def infoToTopic():
         frameInfo.pack_forget()
-        frameTopic.pack()
-
-    def topicToChat():
-        frameTopic.pack_forget()
         frameChat.pack()
+        topic1()
+
 
     def chatToTopic():
         frameChat.pack_forget()
-        frameTopic.pack()
-
-    def topicToInfo():
-        frameTopic.pack_forget()
         frameInfo.pack()
 
     def infoToWelcome():
@@ -343,7 +357,7 @@ def main():
         labelTime = Label(frameWelcome , bd = 5 ,  text = current , height = 1 , width = 8 , font = 'Ariel 11 bold' ,  fg = "white" , relief = 'groove' , bg = c3)
         labelTime.place(x= 120 , y = 63)
 
-        labelTime.after( 1000 , clock )
+        labelTime.after(1000 , clock )
     
     buttonTime = Button(frameWelcome , text = 'Time' , height = 1 , font = 'Vardana 10 bold' ,  width = 8 , bg = c2 , fg = c1 ,  command = clock)
     buttonTime.place(x=30 , y = 63)
@@ -407,7 +421,7 @@ def main():
 
     """     TOPIC FRAME   """
     """"   frame for topic selection     """
-
+    """
     frameTopic = Frame(root , bg = c1 , height = '670' , width = '550')
     frameTopic.pack_propagate(0)
                                 
@@ -420,32 +434,32 @@ def main():
     spacer5 = Label(frameTopic , bg = c1)
     spacer5.pack()
 
-    option1 = Label(frameTopic , text = """
+    option1 = Label(frameTopic , text = """ """
         Make sure you type in lowercase without spaces! 
         E.g. whatisyourname?
         If you're stuck, type help
         Press the arrow to proceed to the chat
-        """ , font = 'Verdana 15 italic' , bg = c1 , fg= c2)
-    option1.place(x = 0 , y = 50)
+        """ """, font = 'Verdana 15 italic' , bg = c1 , fg= c2)
+    option1.place(x = 0 , y = 100)
 
     buttonOpt1 = Button(frameTopic , text = 'Proceed' , image = front , relief = "flat" , bg = c1 ,command = topic1)
     buttonOpt1.place(x = 350 , y = 50)
 
     buttonBack = Button(frameTopic , image = back , relief = "flat", bg = c1 , command = topicToInfo).place(x=10 , y = 10)
+    """
 
     """         CHAT FRAME   """
     """"       Main Chat Screen   """
-
     frameChat = Frame(root , bg = c1 , height = '670' , width = '550')
     frameChat.pack_propagate(0)
 
-    frameTop = Frame( frameChat , bg = c3 , height = '100' , width = '550')
+    frameTop = Frame(frameChat , bg = c3 , height = '100' , width = '550')
     frameTop.pack()
 
-    labelTopic = Label( frameTop , bg = c3 , fg = 'white' , font = 'Verdana 20 bold ')
+    labelTopic = Label(frameTop , bg = c3 , fg = 'white' , font = 'Verdana 20 bold ')
     labelTopic.pack(pady = '40')
 
-    frameSpacer = Frame( frameTop , bg = c2 , height = "10" , width = "550" )
+    frameSpacer = Frame(frameTop , bg = c2 , height = "10" , width = "550" )
     frameSpacer.pack()
 
     bottomFrame = Frame(frameChat , bg = c2 , height = '100' , width = '550')
@@ -472,6 +486,13 @@ def main():
 
     buttonBack = Button(frameChat , image = back , relief = "flat" , bg = c3 , command = chatToTopic).place(x=10 , y = 10)
     buttonFront = Button(frameChat , image = exitt , relief = "flat" , bg = c3 , command = root.destroy ).place(x=440 , y = 10)
+    
+    getResponse("""
+        Make sure you type in lowercase without spaces! 
+        E.g. whatisyourname?
+        If you're stuck, type help
+        """)
+
 
     root.mainloop()
 
