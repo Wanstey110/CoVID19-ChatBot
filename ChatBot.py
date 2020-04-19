@@ -193,7 +193,7 @@ def main():
             Try these commmands:
             growthrate
             symptomscheck
-            update + your country
+            update + your country NOTE: Currently USA, China and Canada are not working
             Also feel free to ask me any questions you have about the virus, like when was the first case etc.
             """
 
@@ -206,14 +206,8 @@ def main():
             elif x == 3:
                 answer = "Heyo"
         
-        elif "updateusa" in chat:
-            upus = chat.find('updateusa')
-            upus = chat.replace('updateusa','')
-            ascii1 = ord(upus[0])
-            ascii2 = chr(ascii1-32)
-            rep = upus.replace(upus[0],ascii2)
-
-            answer = cUpdates.cUpdateUSA(rep)
+        elif chat == 'updateworld':
+            answer = cUpdates.cUpdateWorld()
 
         elif 'update' in chat: 
             upc = chat.find('update')
@@ -222,7 +216,7 @@ def main():
             ascii2 = chr(ascii1-32)
             rep = upc.replace(upc[0],ascii2)
             answer = cUpdates.cUpdate(rep)
-            
+        
         elif chat == "sympcheck" or chat == "symptomcheck":
             getResponse("Check your terminal to answer the questions!")
             simp = sympcheck.sympcheck()
