@@ -61,5 +61,5 @@ def cUpdate(country):
 	return f"Stats:{toReturn}\nMortality Rate:{mRV2}\nRecovery Rate:{rRV}\nCases per 1 million:{cPM2}"
 
 if __name__ == "__main__":
-	x = cUpdate("Philippines")
+	x = cUpdate("japan")
 	print(x)

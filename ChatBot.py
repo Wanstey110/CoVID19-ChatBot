@@ -192,7 +192,7 @@ def main():
             Try these commmands:
             growthrate
             symptomscheck
-            update + your country (currently only Japan, Singapore, Vietnam and the Philippines are working)
+            update + your country
             Also feel free to ask me any questions you have about the virus, like when was the first case etc.
             """
 
@@ -204,22 +204,14 @@ def main():
                 answer = "Hi!"
             elif x == 3:
                 answer = "Heyo"
-
-        elif chat == "updatejapan":
-            placeHolder = cUpdates.cUpdate("Japan")
-            answer = f"Current CoVID-19 statistics in Japan:\n{placeHolder}"
         
-        elif chat == "updatesingapore":
-            placeHolder = cUpdates.cUpdate("Singapore")
-            answer = f"Current CoVID-19 statistics in Singapore:\n{placeHolder}"
-        
-        elif chat == "updatevietnam":
-            placeHolder = cUpdates.cUpdate("Vietnam")
-            answer = f"Current CoVID-19 statistics in Vietnam:\n{placeHolder}"
-        
-        elif chat == "updatephilippines":
-            placeHolder = cUpdates.cUpdate("Philippines")
-            answer = f"Current CoVID-19 statistics in the Philippines:\n{placeHolder}"
+        elif 'update' in chat: 
+            upc = chat.find('update')
+            upc = chat.replace('update','')
+            ascii1 = ord(upc[0])
+            ascii2 = chr(ascii1-32)
+            rep = upc.replace(upc[0],ascii2)
+            answer = cUpdates.cUpdate(rep)
             
         elif chat == "sympcheck" or chat == "symptomcheck":
             getResponse("Check your terminal to answer the questions!")
