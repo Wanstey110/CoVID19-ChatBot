@@ -211,7 +211,7 @@ def main():
         
         elif chat == 'updateusa' or chat == 'updatecanada' or chat == 'updatechina':
             specialChat = chat.replace("update", "")
-            answer = cUpdates.cUpdateSpecial("specialChat")
+            answer = cUpdates.cUpdateSpecial(specialChat)
 
         elif 'update' in chat: 
             upc = chat.find('update')
