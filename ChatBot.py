@@ -257,10 +257,9 @@ def main():
         elif chat == 'updateworld':
             answer = cUpdates.cUpdateWorld()
         
-        elif chat=='updataustralia' or chat == 'updateusa' or chat == 'updatecanada' or chat == 'updatechina' or chat == 'updateamerica' or chat == 'updateus' or chat == 'updateengland' or chat == 'updateuk' or chat == 'updatebritain' or chat == 'updategreatbritain' or chat == 'updateunitedkingdom':
+        elif chat=='updataustralia' or chat == 'updateusa' or chat == 'updatecanada' or chat == 'updatechina' or chat == 'updateamerica' or chat == 'updateus' or chat == 'updateengland' or chat == 'updateuk' or chat == 'updatebritain' or chat == 'updategreatbritain' or chat == 'updateunitedkingdom' or chat == "updatefrance":
             specialChat = chat.replace("update", "")
             answer = cUpdates.cUpdateSpecial(specialChat)
-
 
         elif chat == 'updatenewzealand':
             answer = cUpdates.cUpdate("New Zealand")
