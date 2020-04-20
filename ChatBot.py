@@ -11,14 +11,14 @@ count = 0
 def main():
     def sympcheckPart1():
         ##Instead of input, use: entryChat.get('1.0', 'end-1c')
-        getResponse("Welcome to the COVID19 symptom checker\nHave you ever experienced these symptoms?")
+        getResponse("Welcome to the COVID19 symptom checker. Have you ever experienced these symptoms?")
         symlist = ['Coughing', 'Fever', 'Shortness of breath', 'Sore throat', 'Headache', 'Loss of taste or smell', 'Fatigue',
                 'Muscle and/or body aches', 'Runny/stuffy nose', 'Sneezing', 'Itchy, red, watery eyes', 'Itchy and runny nose']
         num = 0
         for i in symlist:
             num += 1
             getResponse(f'{num}. {i}')
-        getResponse('If yes, please select the symptoms you have been feeling using their number, and seperate each symptom with a comma(no spaces).\nIf you do not experience any of these symptoms, simply type no (You should probably refresh before answering).')
+        getResponse('If yes, please select the symptoms you have been feeling using their number, and seperate each symptom with a comma. Reply no if you do nat have these symptoms. (You should probably refresh before answering).')
 
     def sympcheckPart2(symptoms):
         cheeseburger = symptoms.split(',')
