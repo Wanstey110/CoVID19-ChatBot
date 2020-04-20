@@ -5,6 +5,7 @@ from tkinter import *
 import sympcheck
 import growthRate
 import cUpdates
+
 count = 0
 
 ##Main function
@@ -231,11 +232,74 @@ def main():
         elif chat == 'updateworld':
             answer = cUpdates.cUpdateWorld()
         
-        elif chat == 'updateusa' or chat == 'updatecanada' or chat == 'updatechina':
+        elif chat == 'updateusa' or chat == 'updatecanada' or chat == 'updatechina' or chat == 'updateamerica' or chat == 'updateus':
             specialChat = chat.replace("update", "")
             answer = cUpdates.cUpdateSpecial(specialChat)
+        
+        elif chat == 'updateengland' or chat == 'updateuk' or chat == 'updatebritain' or chat == 'updategreatbritain' or chat == 'updateunitedkingdom':
+            answer = cUpdates.cUpdate('United Kingdom')
 
-        elif 'update' in chat: 
+        elif chat == 'newzealand':
+            answer = cUpdates.cUpdate("New Zealand")
+
+        elif chat == 'bosinaandherzegovina' or chat == 'bosina':
+            answer = cUpdates.cUpdate('Bosnia and Herzegovina')
+
+        elif chat == 'czechrepublic':
+            answer = cUpdates.cUpdate('Czechia')
+
+        elif chat == 'sanmarino':
+            answer = cUpdates.cUpdate('San Marino')
+
+        elif chat == 'vatican' or chat == 'vaticancity':
+            answer = cUpdates.cUpdate('Vatican City')
+
+        elif chat == 'costarica':
+            answer = cUpdates.cUpdate('Costa Rica')
+
+        elif chat == 'dominicanrepublic':
+            answer = cUpdates.cUpdate('Dominican Republic')
+
+        elif chat == 'elsalvador':
+            answer = cUpdates.cUpdate('El Salvador')
+
+        elif chat == "coted'ivoire" or chat == "cotedivoire":
+            answer = cUpdates.cUpdate("Cote d'Ivoire")
+
+        elif chat == "saotomeandprincipe":
+            answer = cUpdates.cUpdate("Sao Tome and Principe")
+
+        elif chat == "sierraleone":
+            answer = cUpdates.cUpdate("Sierra Leone")
+        
+        elif chat == "southafrica":
+            answer = cUpdates.cUpdate("South Africa")
+        
+        elif chat == "centralafricanrepublic":
+            answer = cUpdates.cUpdate("Central African Republic")
+
+        elif chat == "trinidad" or chat == "trinidadandtobago" or chat == "tobago":
+            answer = cUpdates.cUpdate("Trinidad and Tobago")
+        
+        elif chat == "southkorea" or chat == "s.korea" or chat == "korea,south":
+            answer == cUpdates.cUpdate("Korea, South")
+            
+        elif chat == "southsudan" :
+            answer = cUpdates.cUpdate("South Sudan")
+        
+        elif chat == "srilanka":
+            answer = cUpdates.cUpdate("Sri Lanka")
+
+        elif chat == "uae" or chat == "unitedarabemirates" or chat == "emirates":
+            answer = cUpdates.cUpdate("United Arab Emirates")
+            
+        elif chat == "saudiarabia" or chat == "arabia" or chat == "saudi":
+            answer = cUpdates.cUpdate("Saudi Arabia")
+
+        elif chat == "equatorialguinea":
+            answer = cUpdates.cUpdate("Equatorial Guinea")
+
+        elif 'update' in chat:  
             upc = chat.find('update')
             upc = chat.replace('update','')
             ascii1 = ord(upc[0])
