@@ -232,71 +232,68 @@ def main():
         elif chat == 'updateworld':
             answer = cUpdates.cUpdateWorld()
         
-        elif chat == 'updateusa' or chat == 'updatecanada' or chat == 'updatechina' or chat == 'updateamerica' or chat == 'updateus':
+        elif chat=='updataustralia' or chat == 'updateusa' or chat == 'updatecanada' or chat == 'updatechina' or chat == 'updateamerica' or chat == 'updateus' or chat == 'updateengland' or chat == 'updateuk' or chat == 'updatebritain' or chat == 'updategreatbritain' or chat == 'updateunitedkingdom':
             specialChat = chat.replace("update", "")
             answer = cUpdates.cUpdateSpecial(specialChat)
-        
-        elif chat == 'updateengland' or chat == 'updateuk' or chat == 'updatebritain' or chat == 'updategreatbritain' or chat == 'updateunitedkingdom':
-            answer = cUpdates.cUpdate('United Kingdom')
 
-        elif chat == 'newzealand':
+        elif chat == 'updatenewzealand':
             answer = cUpdates.cUpdate("New Zealand")
 
-        elif chat == 'bosinaandherzegovina' or chat == 'bosina':
+        elif chat == 'updatebosinaandherzegovina' or chat == 'updatebosina':
             answer = cUpdates.cUpdate('Bosnia and Herzegovina')
 
-        elif chat == 'czechrepublic':
+        elif chat == 'updateczechrepublic':
             answer = cUpdates.cUpdate('Czechia')
 
-        elif chat == 'sanmarino':
+        elif chat == 'updatesanmarino':
             answer = cUpdates.cUpdate('San Marino')
 
-        elif chat == 'vatican' or chat == 'vaticancity':
+        elif chat == 'updatevatican' or chat == 'updatevaticancity':
             answer = cUpdates.cUpdate('Vatican City')
 
-        elif chat == 'costarica':
+        elif chat == 'updatecostarica':
             answer = cUpdates.cUpdate('Costa Rica')
 
-        elif chat == 'dominicanrepublic':
+        elif chat == 'updatedominicanrepublic':
             answer = cUpdates.cUpdate('Dominican Republic')
 
-        elif chat == 'elsalvador':
+        elif chat == 'updateelsalvador':
             answer = cUpdates.cUpdate('El Salvador')
 
-        elif chat == "coted'ivoire" or chat == "cotedivoire":
+        elif chat == "updatecoted'ivoire" or chat == "updatecotedivoire":
             answer = cUpdates.cUpdate("Cote d'Ivoire")
 
-        elif chat == "saotomeandprincipe":
+        elif chat == "updatesaotomeandprincipe" or chat == 'saotome&principe' or chat == 'sãotoméandpríncipe' or chat == 'sãotomé&príncipe':
             answer = cUpdates.cUpdate("Sao Tome and Principe")
 
-        elif chat == "sierraleone":
+        elif chat == "updatesierraleone":
             answer = cUpdates.cUpdate("Sierra Leone")
         
-        elif chat == "southafrica":
+        elif chat == "updatesouthafrica":
             answer = cUpdates.cUpdate("South Africa")
         
-        elif chat == "centralafricanrepublic":
+        elif chat == "updatecentralafricanrepublic":
             answer = cUpdates.cUpdate("Central African Republic")
 
-        elif chat == "trinidad" or chat == "trinidadandtobago" or chat == "tobago":
+        elif chat == "updatetrinidad" or chat == "updatetrinidadandtobago" or chat == "updatetobago":
             answer = cUpdates.cUpdate("Trinidad and Tobago")
         
-        elif chat == "southkorea" or chat == "s.korea" or chat == "korea,south":
+        elif chat == "updatesouthkorea" or chat == "updates.korea" or chat == "updatekorea,south":
             answer == cUpdates.cUpdate("Korea, South")
             
-        elif chat == "southsudan" :
+        elif chat == "updatesouthsudan" :
             answer = cUpdates.cUpdate("South Sudan")
         
-        elif chat == "srilanka":
+        elif chat == "updatesrilanka":
             answer = cUpdates.cUpdate("Sri Lanka")
 
-        elif chat == "uae" or chat == "unitedarabemirates" or chat == "emirates":
+        elif chat == "updateuae" or chat == "updateunitedarabemirates" or chat == "updateemirates":
             answer = cUpdates.cUpdate("United Arab Emirates")
             
-        elif chat == "saudiarabia" or chat == "arabia" or chat == "saudi":
+        elif chat == "updatesaudiarabia" or chat == "updatearabia" or chat == "updatesaudi":
             answer = cUpdates.cUpdate("Saudi Arabia")
 
-        elif chat == "equatorialguinea":
+        elif chat == "updateequatorialguinea":
             answer = cUpdates.cUpdate("Equatorial Guinea")
 
         elif 'update' in chat:  
@@ -404,6 +401,9 @@ def main():
     welcome = Label(frameWelcome , text = 'Welcome' , font = "Vardana 40 bold" , bg = c1 , fg = "white")
     welcome.place(x = 160 , y = 200)
 
+    clickToProceed = Label(frameWelcome, text = "Click the arrow to proceed", font = "Vardana 15", bg = c1, fg = c5)
+    clickToProceed.place(x = 160, y = 300)
+
     welcomeChatbot = Label(frameWelcome , text = 'I am your CoVID-19 friendly chatbot!' , font = "Helvetica 15 bold italic" , bg = c1 , fg = c6)
     welcomeChatbot.place(x = 125 , y = 270)
 
@@ -476,7 +476,7 @@ def main():
     entryChat = Text (frameInfo , bg = c6, fg = "white" , height ='1'  , width ='40' , font = 'Ariel 15')
     entryChat.place(x = 80 , y = 260)
 
-    button1 = Button(frameInfo , text ='submit' , font = 'Vardana 10 bold' , bg = c2 , fg = c1 , command = info )
+    button1 = Button(frameInfo , text ='enter' , font = 'Vardana 10 bold' , bg = c2 , fg = c1 , command = info )
     button1.place(x = 470 , y = 330)
 
     buttonBack = Button(frameInfo , image =  back , relief = "flat" , bg = c1 , command = infoToWelcome).place(x=10 , y = 10)
@@ -530,10 +530,10 @@ def main():
     bottomFrame.pack_propagate(0)
     bottomFrame.pack(side = BOTTOM)
 
-    button = Button(bottomFrame , image = submitImg , relief = "flat", font = 'Vardana 10 bold' , bg = c3 , command = submit )
+    button = Button(bottomFrame , image = submitImg , relief = "flat", font = 'Vardana 10 bold' , bg = c3 , command = submit)
     button.place(x = 410 , y = 27)
                                     
-    entry = Text (bottomFrame , bg = c3 , fg = c6 , height = '5'  , width ='45' , font  ='Verdana 10')
+    entry = Text(bottomFrame , bg = c3 , fg = "white" , height = '5'  , width ='45' , font  ='Verdana 10')
     entry.config(insertbackground="white")
     entry.bind ('<Return>' , submit)
     entry.place(x = 30, y = 10)
@@ -544,10 +544,10 @@ def main():
 
     labelSpace = Label(frameChats , bg = c1).pack()
 
-    buttonRefresh = Button(frameChat , bg = c3 , fg = c2 ,  text = 'refresh' , font = 'Vardana 10 bold' ,  command =refreshScreen)
+    buttonRefresh = Button(frameChat , bg = c3 , fg = c2 ,  text = 'refresh' , font = 'Vardana 10 bold' ,  command = refreshScreen)
     buttonRefresh.place(x = 440 , y = 80)
 
-    buttonWrite = Button(bottomFrame , text = 'write' ,bg = c3 ,fg = c2 , font = 'Vardana 8' ,  command = writeFile )
+    buttonWrite = Button(bottomFrame , text = 'write' ,bg = "black" ,fg = "white" , font = 'Vardana 8' ,  command = writeFile)
 
     buttonBack = Button(frameChat , image = back , relief = "flat" , bg = c3 , command = chatToTopic).place(x=10 , y = 10)
     buttonFront = Button(frameChat , image = exitt , relief = "flat" , bg = c3 , command = root.destroy ).place(x=440 , y = 10)
@@ -555,7 +555,14 @@ def main():
     getResponse("""
         Make sure you type in lowercase without spaces! 
         E.g. whatisyourname?
-        Make sure you end questions with question marks!
+        Make sure you end questions with question marks! 
+        Press submit to send your message!
+        Here are some cool commands you can try: 
+        update+country or updateworld
+        sympcheck
+        growthrate
+        and many more others!
+        If your screen is full, press refresh.
         If you're stuck, type help
         """)
 
