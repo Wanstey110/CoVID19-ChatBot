@@ -2,7 +2,6 @@ import random
 import time
 import tkinter
 from tkinter import *
-import sympcheck
 import growthRate
 import cUpdates
 
@@ -10,6 +9,28 @@ count = 0
 
 ##Main function
 def main():
+    def sympcheckPart1():
+        ##Instead of input, use: entryChat.get('1.0', 'end-1c')
+        getResponse("Welcome to the COVID19 symptom checker\nHave you ever experienced these symptoms?")
+        symlist = ['Coughing', 'Fever', 'Shortness of breath', 'Sore throat', 'Headache', 'Loss of taste or smell', 'Fatigue',
+                'Muscle and/or body aches', 'Runny/stuffy nose', 'Sneezing', 'Itchy, red, watery eyes', 'Itchy and runny nose']
+        num = 0
+        for i in symlist:
+            num += 1
+            getResponse(f'{num}. {i}')
+        getResponse('If yes, please select the symptoms you have been feeling using their number, and seperate each symptom with a comma(no spaces).\nIf you do not experience any of these symptoms, simply type no (You should probably refresh before answering).')
+
+    def sympcheckPart2(symptoms):
+        cheeseburger = symptoms.split(',')
+        if ("1" in cheeseburger and "2" in cheeseburger and "3" in cheeseburger) or ("3" in cheeseburger and ("1" in cheeseburger or "7" in cheeseburger or "8" in cheeseburger)):
+            return 'If you are experiencing Fever, Cough, Shortness of breath and/or muscle pain and body aches, these are all symptoms of the coronavirus. If these are mild, try self isolating, while if these are serious, I advise you to go see a doctor immediately.'
+        elif "11" not in cheeseburger and "12" not in cheeseburger:
+            return 'You may be suffering from the flu. The flu has all the symptoms listed above, except for shortnes for breath, or itchiness. If you are only experiencing sneezing and/or itchiness, chest tightness, or coughing, perhaps you may be alergic or asmatic. Keep in mind this is not a professional diagnosis and consult your doctor if you are feeling very ill.'
+        elif "11" in cheeseburger or "12" in cheeseburger:
+            return "Don't worry, if you're only experiencing itchy and runny nose and itchy red watery eyes, then you're suffering from an allergy. Sneezing might also be a symptom of it, and constant couging or chest tightness along with the previous symptoms mentioned might mean youre asmatic. Keep in mind this is not a professional diagnosis and consult your doctor if you are feeling very ill."
+        else:
+            return 'If you are only experiencing sneezing and/or itchiness or chest tightness perhaps you may be alergic or asmatic. The amin symptoms of coronavirus are difficulty breathing, coughing and fever. The main difference with flu is the fact that the coronavirus targets the cells in your lungs, so while flu does not have the symptom of chest tightness and shortness of breath, the coronavirus does. Keep in mind that this is not a professional diagnosis and consult your doctor if you are feeling very ill '
+
     ##Color Table
     c1 = '#263238'
     c2 = '#faa21f'
@@ -309,10 +330,14 @@ def main():
             rep = upc.replace(upc[0],ascii2)
             answer = cUpdates.cUpdate(rep)
         
-        elif chat == "sympcheck" or chat == "symptomcheck":
-            getResponse("Check your terminal to answer the questions!")
-            simp = sympcheck.sympcheck()
-            answer = simp
+        elif chat == "sympcheck" or chat == "symptomcheck" or chat == "symptomchecker" or chat == "symptomschecker":
+            sympcheckPart1()
+        
+        elif "," in chat:
+            answer = sympcheckPart2(chat)
+        
+        elif chat == "no":
+            answer = "You said you have none of these symptoms. You are most likely in a fine condition. Keep in mind this is not a professional diagnosis and consult your doctor if you are feeling very ill "
 
         else:
             
@@ -534,7 +559,7 @@ def main():
         Press submit to send your message!
         Here are some cool commands you can try: 
         update+country or update world
-        sympcheck
+        symptom checker
         growthrate
         and many more others!
         If your screen is full, press refresh.
