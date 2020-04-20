@@ -470,6 +470,7 @@ def main():
     button.place(x = 410 , y = 27)
                                     
     entry = Text (bottomFrame , bg = c3 , fg = c6 , height = '5'  , width ='45' , font  ='Verdana 10')
+    entry.config(insertbackground="white")
     entry.bind ('<Return>' , submit)
     entry.place(x = 30, y = 10)
 
