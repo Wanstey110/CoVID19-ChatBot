@@ -42,7 +42,8 @@ def main():
 
         frameInfo.pack_forget()
         frameChat.pack()
-        
+        def getChatbot():
+            return chatbot
     #------------------------------------------------------------------------------------------
 
     """
@@ -67,7 +68,7 @@ def main():
         frameInfo.pack_forget()
         frameChat.pack()    
 
-        topic = "CoVID-19"
+        topic = getChatbot()
         labelTopic.config(text = topic)
 
         refreshScreen()
@@ -171,10 +172,12 @@ def main():
         global doc
         doc = a.readlines()
 
+        global chatbot
+
         frameInfo.pack_forget()
         frameChat.pack()
 
-        topic = "CoVID-19"
+        topic = chatbot
         labelTopic.config(text=topic)
         if count == 0:
             refreshScreen()
@@ -187,6 +190,7 @@ def main():
         
         chat = chatRaw.lower()
         chat = chat.replace(" ","")
+        chat = chat.replace("'","")
 
         global labelRequest
         labelRequest = Label(frameChats ,text=chatRaw , bg = c4 , fg= c7  , justify = LEFT , wraplength = 300, font = 'Verdana 10 bold')
@@ -228,13 +232,14 @@ def main():
                 answer = "Hi!"
             elif x == 3:
                 answer = "Heyo"
-        
+
         elif chat == 'updateworld':
             answer = cUpdates.cUpdateWorld()
         
         elif chat=='updataustralia' or chat == 'updateusa' or chat == 'updatecanada' or chat == 'updatechina' or chat == 'updateamerica' or chat == 'updateus' or chat == 'updateengland' or chat == 'updateuk' or chat == 'updatebritain' or chat == 'updategreatbritain' or chat == 'updateunitedkingdom':
             specialChat = chat.replace("update", "")
             answer = cUpdates.cUpdateSpecial(specialChat)
+
 
         elif chat == 'updatenewzealand':
             answer = cUpdates.cUpdate("New Zealand")
@@ -263,7 +268,7 @@ def main():
         elif chat == "updatecoted'ivoire" or chat == "updatecotedivoire":
             answer = cUpdates.cUpdate("Cote d'Ivoire")
 
-        elif chat == "updatesaotomeandprincipe" or chat == 'saotome&principe' or chat == 'sãotoméandpríncipe' or chat == 'sãotomé&príncipe':
+        elif chat == "updatesaotomeandprincipe" or chat == 'saotome&principe':
             answer = cUpdates.cUpdate("Sao Tome and Principe")
 
         elif chat == "updatesierraleone":
@@ -279,7 +284,7 @@ def main():
             answer = cUpdates.cUpdate("Trinidad and Tobago")
         
         elif chat == "updatesouthkorea" or chat == "updates.korea" or chat == "updatekorea,south":
-            answer == cUpdates.cUpdate("Korea, South")
+            answer = cUpdates.cUpdate("Korea, South")
             
         elif chat == "updatesouthsudan" :
             answer = cUpdates.cUpdate("South Sudan")
@@ -295,7 +300,7 @@ def main():
 
         elif chat == "updateequatorialguinea":
             answer = cUpdates.cUpdate("Equatorial Guinea")
-
+        
         elif 'update' in chat:  
             upc = chat.find('update')
             upc = chat.replace('update','')
@@ -310,8 +315,11 @@ def main():
             answer = simp
 
         else:
+            
             i = 0
             j = 0
+            if (chat[0] == 'w' or chat[0] == 'h' or chat[0] == 'i' or chat[0] == 'a') and chat[len(chat)-1] != '?':
+                chat = chat + '?'
             for lines in doc:
                 stats = lines [:-1]
                 stats = stats.lower()
@@ -322,7 +330,6 @@ def main():
                         break
                 else:
                     j += 1
-                    
             if i == j :
                 blurb = random.randint(1, 4)
                 if blurb == 1:
@@ -482,36 +489,6 @@ def main():
     buttonBack = Button(frameInfo , image =  back , relief = "flat" , bg = c1 , command = infoToWelcome).place(x=10 , y = 10)
 
     #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-    """     TOPIC FRAME   """
-    """"   frame for topic selection     """
-    """
-    frameTopic = Frame(root , bg = c1 , height = '670' , width = '550')
-    frameTopic.pack_propagate(0)
-                                
-    spacer3 = Label(frameTopic , bg = c1)
-    spacer3.pack()
-
-    spacer4 = Label(frameTopic , bg = c1)
-    spacer4.pack()
-
-    spacer5 = Label(frameTopic , bg = c1)
-    spacer5.pack()
-
-    option1 = Label(frameTopic , text = """ """
-        Make sure you type in lowercase without spaces! 
-        E.g. whatisyourname?
-        If you're stuck, type help
-        Press the arrow to proceed to the chat
-        """ """, font = 'Verdana 15 italic' , bg = c1 , fg= c2)
-    option1.place(x = 0 , y = 100)
-
-    buttonOpt1 = Button(frameTopic , text = 'Proceed' , image = front , relief = "flat" , bg = c1 ,command = topic1)
-    buttonOpt1.place(x = 350 , y = 50)
-
-    buttonBack = Button(frameTopic , image = back , relief = "flat", bg = c1 , command = topicToInfo).place(x=10 , y = 10)
-    """
-
     """         CHAT FRAME   """
     """"       Main Chat Screen   """
     frameChat = Frame(root , bg = c1 , height = '670' , width = '550')
@@ -553,12 +530,10 @@ def main():
     buttonFront = Button(frameChat , image = exitt , relief = "flat" , bg = c3 , command = root.destroy ).place(x=440 , y = 10)
     
     getResponse("""
-        Make sure you type in lowercase without spaces! 
-        E.g. whatisyourname?
         Make sure you end questions with question marks! 
         Press submit to send your message!
         Here are some cool commands you can try: 
-        update+country or updateworld
+        update+country or update world
         sympcheck
         growthrate
         and many more others!

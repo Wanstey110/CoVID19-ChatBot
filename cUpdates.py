@@ -4,20 +4,22 @@ import json
 
 
 def getPopulation(country):
-    url = "https://world-population.p.rapidapi.com/population"
-    querystring = {"country_name": country}
-    headers = {
+	url = "https://world-population.p.rapidapi.com/population"
+	if country == "Korea, South":
+		country = "South Korea"
+	querystring = {"country_name": country}
+	headers = {
         'x-rapidapi-host': "world-population.p.rapidapi.com",
         'x-rapidapi-key': "b087d3c483msha78ec3f9ef8104cp1b83e5jsn6eb7ac519d97"
     }
-    response = requests.request(
+	response = requests.request(
         "GET", url, headers=headers, params=querystring)
-    toReturn = response.text
-    fI1 = toReturn.find('"population":')
-    fI2 = toReturn.find(',"ranking')
-    toReturn = int(toReturn[fI1+13:fI2])
-
-    return toReturn
+	toReturn = response.text
+	fI1 = toReturn.find('"population":')
+	fI2 = toReturn.find(',"ranking')
+	toReturn = int(toReturn[fI1+13:fI2])
+	
+	return toReturn
 
 
 def getPopWorld():
@@ -173,9 +175,9 @@ def cUpdateSpecial(country):
 		return f"Stats:\nConfirmed: {casesCan}\nDeaths: {deathsCan}\nRecovered: {recoveredCan}\nMortality Rate:{mortalityRateCan}\nRecovery Rate:{recoveryRateCan}\nCases per 1 million:{casespermCan}"
 	
 	elif country == "france":
-		casesFran = int(r2["countries_stat"][4]["cases"])
-		deathsFran = int(r2["countries_stat"][4]["deaths"])
-		recoveredFran = int(r2["countries_stat"][4]["recovered"])
+		casesFran = int(r2["countries_stat"][4]["cases"].replace(",",""))
+		deathsFran = int(r2["countries_stat"][4]["deaths"].replace(",",""))
+		recoveredFran = int(r2["countries_stat"][4]["recovered"].replace(",",""))
 
 		mortalityRateFran = f"{round((deathsFran / casesFran) * 100,2)}% (2dp)"
 		recoveryRateFran = f"{round((recoveryRateFran / casesFran) * 100,2)}% (2dp)"
@@ -220,5 +222,5 @@ def cUpdateSpecial(country):
 		return f"Stats:\nConfirmed: {casesAus}\nDeaths: {deathsAus}\nRecovered: {recoveredAus}\nMortality Rate:{mortalityRateAus}\nRecovery Rate:{recoveryRateAus}\nCases per 1 million:{casespermAus}"
 		
 if __name__ == "__main__":
-    x = cUpdateWorld()
+    x = getPopulation("S. Korea")
     print(x)
