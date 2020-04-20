@@ -491,6 +491,7 @@ def main():
     getResponse("""
         Make sure you type in lowercase without spaces! 
         E.g. whatisyourname?
+        Make sure you end questions with question marks!
         If you're stuck, type help
         """)
 
