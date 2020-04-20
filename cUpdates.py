@@ -103,6 +103,8 @@ def cUpdateWorld():
 	casesperm = casesperm * 1000000
 	casesperm = f"{round(casesperm, 2)} (2dp)"
 
+	return f"Stats:\nConfirmed: {cases}\nDeaths: {deaths}\nRecovered: {recovered}\nMortality Rate:{mortalityRate}\nRecovery Rate:{recoveryRate}\nCases per 1 million:{casesperm}"
+
 
 def cUpdateSpecial(country):
 	url = "https://corona-virus-world-and-india-data.p.rapidapi.com/api"
