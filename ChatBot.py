@@ -339,6 +339,8 @@ def main():
         elif chat == "no":
             answer = "You said you have none of these symptoms. You are most likely in a fine condition. Keep in mind this is not a professional diagnosis and consult your doctor if you are feeling very ill "
 
+
+
         else:
             
             i = 0
