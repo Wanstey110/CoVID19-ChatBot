@@ -3,7 +3,7 @@ import datetime
 import json
 
 ##GetPop functions are commented out because the api is down / unreliable
-"""
+
 def getPopulation(country):
 	url = "https://world-population.p.rapidapi.com/population"
 	if country == "Korea, South":
@@ -36,7 +36,7 @@ def getPopWorld():
     toReturn = int(toReturn[fI1+13:fI2])
 
     return toReturn
-"""
+
 def cUpdate(country):
 	url = "https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats"
 	querystring = {"country": country}
@@ -72,7 +72,7 @@ def cUpdate(country):
 	rRV = (cCC2 / cDC3) * 100
 	rRV = f"{round(rRV,2)}% (2dp)"
 
-	"""
+	
 	if country == "Sao Tome and Principe":
 		cPM = (cDC3 / getPopulation("Sao Tome & Principe"))
 		cPM2 = cPM * 1000000
@@ -81,7 +81,7 @@ def cUpdate(country):
 		cPM = (cDC3/getPopulation(country))
 		cPM2 = cPM * 1000000
 		cPM2 = f"{round(cPM2, 2)} (2dp)"
-	"""
+	
 	return f"Stats:\nConfirmed: {cDC3}\nDeaths: {dRC3}\nRecovered: {cCC2}\nMortality Rate:{mRV2}\nRecovery Rate:{rRV}"
 
 
@@ -103,11 +103,11 @@ def cUpdateWorld():
 	recoveryRate = (recovered / cases) * 100
 	recoveryRate = f"{round(recoveryRate,2)}% (2dp)"
 
-	"""
+	
 	casesperm = (cases / getPopWorld())
 	casesperm = casesperm * 1000000
 	casesperm = f"{round(casesperm, 2)} (2dp)"
-	"""
+	
 	return f"Stats:\nConfirmed: {cases}\nDeaths: {deaths}\nRecovered: {recovered}\nMortality Rate:{mortalityRate}\nRecovery Rate:{recoveryRate}"
 
 
@@ -134,11 +134,11 @@ def cUpdateSpecial(country):
 		recoveryRateUSA = (recoveredUSA / casesUSA) * 100
 		recoveryRateUSA = f"{round(recoveryRateUSA,2)}% (2dp)"
 
-		"""
+		
 		casespermUSA = (casesUSA/getPopulation("United States"))
 		casespermUSA = casespermUSA * 1000000
 		casespermUSA = f"{round(casespermUSA, 2)} (2dp)"
-		"""
+		
 		return f"Stats:\nConfirmed: {casesUSA}\nDeaths: {deathsUSA}\nRecovered: {recoveredUSA}\nMortality Rate:{mortalityRateUSA}\nRecovery Rate:{recoveryRateUSA}"
 
 	elif country == "china":
@@ -153,11 +153,11 @@ def cUpdateSpecial(country):
 		recoveryRateChi = (recoveredChi / casesChi) * 100
 		recoveryRateChi = f"{round(recoveryRateChi,2)}% (2dp)"
 
-		"""
+		
 		casespermChi = (casesChi/getPopulation("China"))
 		casespermChi = casespermChi * 1000000
 		casespermChi = f"{round(casespermChi, 2)} (2dp)"
-		"""
+		
 		return f"Stats:\nConfirmed: {casesChi}\nDeaths: {deathsChi}\nRecovered: {recoveredChi}\nMortality Rate:{mortalityRateChi}\nRecovery Rate:{recoveryRateChi}"
 
 	elif country == "canada":
@@ -173,11 +173,11 @@ def cUpdateSpecial(country):
 		recoveryRateCan = (recoveredCan / casesCan) * 100
 		recoveryRateCan = f"{round(recoveryRateCan,2)}% (2dp)"
 		
-		"""
+		
 		casespermCan = (casesCan/getPopulation("Canada"))
 		casespermCan = casespermCan * 1000000
 		casespermCan = f"{round(casespermCan, 2)} (2dp)"
-		"""
+		
 		return f"Stats:\nConfirmed: {casesCan}\nDeaths: {deathsCan}\nRecovered: {recoveredCan}\nMortality Rate:{mortalityRateCan}\nRecovery Rate:{recoveryRateCan}"
 	
 	elif country == "france":
@@ -188,10 +188,10 @@ def cUpdateSpecial(country):
 		mortalityRateFran = f"{round((deathsFran / casesFran) * 100,2)}% (2dp)"
 		recoveryRateFran = f"{round((recoveredFran / casesFran) * 100,2)}% (2dp)"
 		
-		"""
+		
 		casespermFran = (casesFran / getPopulation("France")) * 100000
 		casespermFran = f"{round(casespermFran, 2)}% (2dp)"
-		"""
+		
 		return f"Stats:\nConfirmed: {casesFran}\nDeaths: {deathsFran}\nRecovered: {recoveredFran}\nMortality Rate:{mortalityRateFran}\nRecovery Rate:{recoveryRateFran}"
 		
 	elif country == 'england' or country == 'uk' or country == 'britain' or country == 'greatbritain' or country == 'unitedkingdom':
@@ -205,11 +205,11 @@ def cUpdateSpecial(country):
 		recoveryRateUK = (recoveredUK / casesUK) * 100
 		recoveryRateUK = f"{round(recoveryRateUK,2)}% (2dp)"
 		
-		"""
+		
 		casespermUK = (casesUK/getPopulation("United Kingdom"))
 		casespermUK = casespermUK * 1000000
 		casespermUK = f"{round(casespermUK, 2)} (2dp)"
-		"""
+		
 		return f"Stats:\nConfirmed: {casesUK}\nDeaths: {deathsUK}\nRecovered: {recoveredUK}\nMortality Rate:{mortalityRateUK}\nRecovery Rate:{recoveryRateUK}"
 
 	elif country == 'australia':
@@ -223,9 +223,9 @@ def cUpdateSpecial(country):
 		recoveryRateAus = (recoveredAus / casesAus) * 100
 		recoveryRateAus = f"{round(recoveryRateAus,2)}% (2dp)"
 		
-		"""
+		
 		casespermAus = (casesAus/getPopulation("Australia"))
 		casespermAus = casespermAus * 1000000
 		casespermAus = f"{round(casespermAus, 2)} (2dp)"
-		"""
+		
 		return f"Stats:\nConfirmed: {casesAus}\nDeaths: {deathsAus}\nRecovered: {recoveredAus}\nMortality Rate:{mortalityRateAus}\nRecovery Rate:{recoveryRateAus}"
