@@ -6,7 +6,8 @@ Here are versions of our code which we actively support with security updates:
 | Version | Supported          |
 | ------- | ------------------ |
 | v.1     | :x:                |
-| v.2.    | :white_check_mark: |
+| v.2     | :x:                |
+| v.2.1.  | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
